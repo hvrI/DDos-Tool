@@ -6,7 +6,7 @@ os.system(cmd)
 system("title DDos Tool @hvrl")
 running = True
 
-#USER INPUT & GUI
+# USER INPUT & GUI
 def start():
     print('GitHub @hvrrl')
     print('')
