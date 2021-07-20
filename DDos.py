@@ -38,10 +38,11 @@ def attack():
     
 def main():
     while running:
-
         start()
+        
         for x in range(0, THREADS):
             threading.Thread(target=attack).start()
+            
         time.sleep(TIME)
         print('ATTACK DONE')
         time.sleep(1)
