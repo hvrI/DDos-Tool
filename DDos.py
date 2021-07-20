@@ -3,12 +3,12 @@ from os import system
 
 cmd = 'mode 50,10'
 os.system(cmd)
-system("title DDos Tool @LOWKEY")
+system("title DDos Tool @hvrl")
 running = True
 
 #USER INPUT & GUI
 def start():
-    print('GitHub @Lowkeying')
+    print('GitHub @hvrrl')
     print('')
     try:
         global TARGET
