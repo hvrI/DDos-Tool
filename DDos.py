@@ -9,7 +9,6 @@ from os import system
 
 system("mode 50,10")
 system("title DDos Tool @hvrl")
-running = True
 
 def start():
     print("GitHub @hvrrl")
@@ -40,7 +39,7 @@ def attack():
         pass
     
 def main():
-    while running:
+    while True:
         start()
         for x in range(0, THREADS):
             threading.Thread(target=attack).start()
